@@ -127,4 +127,24 @@ console.log(getShippingFee(25_000, '부산'))
 console.groupEnd()
 
 
+// 3. 비밀번호 유효성 검사 (화살표 함수 표현식으로 작성)
+const checkPasswordValid = (password) => {
+  const passwordStr = String(password)
+  let checkValid = false
+
+  // console.log('비밀번호: ' + passwordStr + ' / 길이:' + passwordStr.length)
+  if (8 <= passwordStr.length && passwordStr.length <= 20)
+    checkValid = true
+
+  return checkValid
+}
+// TEST
+console.group('3. 비밀번호 유효성 검사')
+console.log(checkPasswordValid(123))
+console.log(checkPasswordValid(12345678910))
+console.log(checkPasswordValid('안녕하세요'))
+console.log(checkPasswordValid('감사해요_이거는_true'))
+console.groupEnd()
+
+
 console.groupEnd()
