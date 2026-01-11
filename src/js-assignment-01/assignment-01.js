@@ -147,4 +147,28 @@ console.log(checkPasswordValid('감사해요_이거는_true'))
 console.groupEnd()
 
 
+// 4. 포인트 적립 계산 (함수 선언으로 작성)
+const POINT_REWARD_RATE = {
+  VIP: 0.05,
+  GOLD: 0.03,
+  SILVER: 0.01,
+  GENERAL: 0.005
+}
+
+function calculateRewardPoints(totalAmount, memberGrade) {
+  let rewardPoints = 0 
+
+  rewardPoints = totalAmount * POINT_REWARD_RATE[memberGrade]
+  
+  return rewardPoints
+}
+// TEST
+console.group('4. 포인트 적립 계산')
+console.log(calculateRewardPoints(10_000, 'VIP'))
+console.log(calculateRewardPoints(10_000, 'GOLD'))
+console.log(calculateRewardPoints(10_000, 'SILVER'))
+console.log(calculateRewardPoints(10_000, 'GENERAL'))
+console.groupEnd()
+
+
 console.groupEnd()
