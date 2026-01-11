@@ -171,4 +171,40 @@ console.log(calculateRewardPoints(10_000, 'GENERAL'))
 console.groupEnd()
 
 
+// 5. 영화 티켓 가격 계산 (함수 표현식으로 작성)
+const MOVIE_TYPE = {
+  STANDARD: 'standard',
+  THREE_D: '3d',
+  IMAX: 'imax'
+}
+const MOVIE_TICKET_PRICE = {
+  [MOVIE_TYPE.STANDARD]: 14_000,
+  [MOVIE_TYPE.THREE_D]: 17_000,
+  [MOVIE_TYPE.IMAX]: 20_000
+}
+const DISCOUNT_RATE = 0.2
+
+const calculateMovieTicketPrice = function(movieType, isEarlyBird, numberOfPeople) {
+  let totalPrice = MOVIE_TICKET_PRICE[movieType]
+
+  if (isEarlyBird)
+    totalPrice *= (1 - DISCOUNT_RATE)
+
+  totalPrice *= numberOfPeople
+
+  return Math.floor(totalPrice)
+}
+// TEST
+console.group('5. 영화 티켓 가격 계산')
+console.log(calculateMovieTicketPrice('standard', false, 1))
+console.log(calculateMovieTicketPrice('3d', false, 1))
+console.log(calculateMovieTicketPrice('imax', false, 1))
+console.log(calculateMovieTicketPrice('standard', true, 1))
+console.log(calculateMovieTicketPrice('3d', true, 1))
+console.log(calculateMovieTicketPrice('imax', true, 1))
+console.log(calculateMovieTicketPrice('standard', true, 6))
+console.log(calculateMovieTicketPrice('3d', true, 7))
+console.log(calculateMovieTicketPrice('imax', true, 8))
+console.groupEnd()
+
 console.groupEnd()
