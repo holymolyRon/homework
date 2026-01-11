@@ -60,3 +60,40 @@ console.log(userGradeScore);
 console.log(isNotificationEnabled);
 console.groupEnd()
 console.log('=========================')
+
+
+/*
+  함수 작성 과제
+  1. 환영 메시지 생성
+  2. 배송비 계산
+  3. 비밀번호 유효성 검사
+  4. 포인트 적립 계산
+  5. 영화 티켓 가격 계산
+*/
+console.group('<< 함수 작성 과제 >>')
+
+// 1. 환영 메시지 생성 (함수 선언으로 작성)
+const MEMBER_GRADE = {
+  VIP : 'VIP',
+  GENERAL : 'General',
+}
+
+function printWelcomeMessage(memberGrade, memberName) {
+  let message = '안녕하세요, 고객님! 즐거운 쇼핑 되세요.'
+
+  if (memberGrade === MEMBER_GRADE.VIP)
+    message = '🌟 VIP ' + memberName + '님, 특별한 혜택이 준비되어 있습니다!'
+  else if (memberGrade === MEMBER_GRADE.GENERAL)
+    message = '안녕하세요, ' + memberName + '님! 즐거운 쇼핑 되세요.'
+  // code others grade..
+  
+  return message
+}
+// TEST
+console.group('1. 환영 메시지 생성')
+console.log(printWelcomeMessage(MEMBER_GRADE.GENERAL, '이정론'))
+console.log(printWelcomeMessage(MEMBER_GRADE.VIP, '야무'))
+console.log(printWelcomeMessage('Basic', '철수'))
+console.groupEnd()
+
+console.groupEnd()
