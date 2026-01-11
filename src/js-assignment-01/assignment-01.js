@@ -96,4 +96,35 @@ console.log(printWelcomeMessage(MEMBER_GRADE.VIP, '야무'))
 console.log(printWelcomeMessage('Basic', '철수'))
 console.groupEnd()
 
+
+// 2. 배송비 계산 (함수 표현식으로 작성)
+const SHIPPING_FEE = {
+  FREE: 0,
+  BASE: 3_000,
+  EXTRA: 3_000,
+};
+
+const getShippingFee = function(orderPrice, deliveryRegion) {
+  let shippingFee = SHIPPING_FEE.BASE
+
+  if (orderPrice >= 50_000 || orderPrice <= 0) {
+    shippingFee = SHIPPING_FEE.FREE
+  } else {
+    if (deliveryRegion === '제주' || deliveryRegion === '도서') {
+      shippingFee += SHIPPING_FEE.EXTRA
+    }
+  }
+  return shippingFee
+}
+// TEST
+console.group('2. 배송비 계산')
+console.log(getShippingFee(50_000, '제주'))
+console.log(getShippingFee(50_000, '서울'))
+console.log(getShippingFee(0, '도서'))
+console.log(getShippingFee(0, '서울'))
+console.log(getShippingFee(25_000, '제주'))
+console.log(getShippingFee(25_000, '부산'))
+console.groupEnd()
+
+
 console.groupEnd()
